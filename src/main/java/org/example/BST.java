@@ -27,6 +27,14 @@ public class BST {
         return root;
     }
 
+    public static void inOrder(Node root){
+        if(root == null){
+            return;
+        }
+        inOrder(root.left);
+        System.out.print(root.data+" ");
+        inOrder(root.right);
+    }
 
 
     public static void main(String[] args) {
@@ -36,6 +44,7 @@ public class BST {
         for (int i = 0; i<values.length;i++){
             root = insert(root,values[i]);
         }
+        inOrder(root);
 
     }
 }
