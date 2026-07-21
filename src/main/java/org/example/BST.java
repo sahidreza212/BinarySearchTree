@@ -53,6 +53,18 @@ public class BST {
         postOrder(root.right);
         System.out.print(root.data+" ");
     }
+    public static boolean search(Node root, int key){
+        if(root == null){
+            return false;
+        }
+        if(root.data>key){
+            return  search(root.left,key);
+        } else if (root.data == key) {
+            return true;
+        }else {
+            return search(root.right,key);
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -66,6 +78,12 @@ public class BST {
         preorder(root);
         System.out.println();
         postOrder(root);
+        System.out.println();
+        if(search(root,1)){
+            System.out.println("Found");
+        }else {
+            System.out.println("Not Found");
+        }
 
     }
 }
