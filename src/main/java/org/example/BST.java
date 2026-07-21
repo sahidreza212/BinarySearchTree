@@ -45,6 +45,14 @@ public class BST {
         preorder(root.right);
     }
 
+    public static void postOrder(Node root){
+        if(root == null){
+            return;
+        }
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.print(root.data+" ");
+    }
 
     public static void main(String[] args) {
 
@@ -56,6 +64,8 @@ public class BST {
         inOrder(root);
         System.out.println();
         preorder(root);
+        System.out.println();
+        postOrder(root);
 
     }
 }
