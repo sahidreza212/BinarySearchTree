@@ -101,6 +101,20 @@ public class BST {
        }
        return root;
     }
+    public static void printInRange(Node root , int X, int Y){
+       if(root == null){
+           return ;
+       }
+        if(root.data >= X && root.data <= Y){
+            printInRange(root.left,X,Y);
+            System.out.print(root.data+" ");
+            printInRange(root.right,X,Y);
+        } else if (root.data >= Y) {
+            printInRange(root.left,X,Y);
+        }else {
+            printInRange(root.right, X,Y);
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -123,5 +137,7 @@ public class BST {
         delete(root,5);
         System.out.print("Deleted inorder: ");
         inOrder(root);
+        System.out.println();
+        printInRange(root,2,5);
     }
 }
